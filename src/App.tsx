@@ -56,7 +56,7 @@ function App() {
       <span>
         {romel.zipCode} {romel.location}
       </span>
-      <p>[{setBread.phone}]</p>
+      {/* <p>[{setBread.phone}]</p> */}
     </div>
   );
 }
