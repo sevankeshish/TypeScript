@@ -16,13 +16,13 @@ export interface Lavash {
   phone: number;
   country: { city: string };
   address: string[];
-  job: [object];
+  job: [{ CS: string }];
 }
 
 function App() {
   const [sevan, setSevan] = useState<string>("");
   const [romel, setRomel] = useState<prac>({ location: "LA", zipCode: 91201 });
-  const [bread, setBread] = useState<Lavash[] | undefined>();
+  const [bread, setBread] = useState<Lavash[]>();
 
   useEffect(() => {
     setBread([
@@ -46,7 +46,7 @@ function App() {
       },
     ]);
   }, []);
-
+  // console.log(bread[0]?.job[0]?.CS);
   return (
     <div className="App">
       <Component1 title={"sevan"} />
@@ -56,7 +56,13 @@ function App() {
       <span>
         {romel.zipCode} {romel.location}
       </span>
-      {/* <p>[{setBread.phone}]</p> */}
+      {bread?.map((e) => {
+        return (
+          <p>
+            {e.phone} {e.address[0]} {e.country.city} {e.job[0]?.CS}
+          </p>
+        );
+      })}
     </div>
   );
 }
