@@ -60,6 +60,7 @@ function App() {
         return (
           <p>
             {e.phone} {e.address[0]} {e.country.city} {e.job[0]?.CS}
+            {/* {e.phone} */}
           </p>
         );
       })}
